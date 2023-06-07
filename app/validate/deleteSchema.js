@@ -1,7 +1,7 @@
 const Joi = require("joi");
-const showProfileSchema = {
+const deleteSchema = {
   headers: {
     authorization: Joi.string().required(),
   },
 };
-module.exports = showProfileSchema;
+module.exports = deleteSchema;
