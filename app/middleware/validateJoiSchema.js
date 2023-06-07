@@ -1,7 +1,6 @@
 const Joi = require("joi");
 function validateJoiSchema(schema) {
   return (req, res, next) => {
-    // console.log(req.file);
     if (schema.body) {
       const result = Joi.object(schema.body).validate(req.body);
       if (result.error) {

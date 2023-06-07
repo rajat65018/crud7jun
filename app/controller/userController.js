@@ -35,7 +35,6 @@ userController.signUp = async (req, res) => {
     Bucket: "rajat777",
     Key: fileName,
     Body: file.buffer,
-    // ACL: 'public-read', // Set the appropriate permissions for the uploaded file
   };
 
   await s3.upload(params, {}, async (err, data) => {
@@ -59,21 +58,6 @@ userController.signUp = async (req, res) => {
       imageUrl: payload.profileImage,
     });
   });
-  // const data = profile.Location;
-  // console.log(data);
-  // payload.password = await bcrypt.hash(payload.password, 8);
-  // const user = await createUser(payload);
-  // const token = jwt.sign({ _id: user._id }, SECRETKEY);
-  // const session = {
-  //   token: token,
-  //   userId: user._id,
-  // };
-  // await createSession(session);
-  // return res.json({
-  //   token: token,
-  //   id: user._id,
-  //   imageUrl: payload.profileImage,
-  // });
 };
 
 userController.login = async (req, res) => {
@@ -155,7 +139,6 @@ userController.changePassword = async (req, res) => {
 userController.showImage = async (req, res) => {
   console.log(req.user);
   res.set("content-type", "image/png");
-  // res.json({user:req.user.profileImage});
   res.send(req.user.profileImage);
 };
 

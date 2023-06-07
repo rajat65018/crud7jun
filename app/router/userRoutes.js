@@ -30,18 +30,6 @@ const upload = multer({
   },
 });
 
-// const storage = multer.diskStorage({
-//   // destination: function (req, file, cb) {
-//   //   cb(null, '/tmp/my-uploads')
-//   // },
-//   filename: function (req, file, cb) {
-//     console.log("file name");
-//     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-//     cb(null, file.fieldname + "-" + uniqueSuffix);
-//   },
-// });
-
-// const upload = multer({ storage: storage });
 
 router.get(
   "/showimage",
@@ -54,7 +42,6 @@ router.post(
   upload.single("upload"),
   (req, res, next) => {
     console.log("===>", req.file.buffer);
-    // res.json('hello');
     next();
   },
   validateJoiSchema(signUpSchema),
