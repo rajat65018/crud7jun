@@ -9,5 +9,6 @@ const MESSAGES = {
   PASSWORD_CHANGED_SUCCESSFULLY: "Password changed successfully",
   PLEASE_ENTER_A_VALID_PASSWORD: "Please enter a valid password",
   FILE_NOT_UPLOADED: "No file uploaded",
+  PROFILE_IMAGE_NOT_ADDED:"Profile add profile image",
 };
 module.exports = MESSAGES;

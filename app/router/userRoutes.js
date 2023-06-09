@@ -8,7 +8,7 @@ const {
   deleteProfile,
   updateProfile,
   changePassword,
-  showImage,
+  showData,
 } = require("../controller/userController");
 const loginSchema = require("../validate/loginSchema");
 const showProfileSchema = require("../validate/showProfileSchema");
@@ -31,19 +31,9 @@ const upload = multer({
 });
 
 
-router.get(
-  "/showimage",
-  passport.authenticate("jwt", { session: false }),
-  showImage
-);
-
 router.post(
   "/signup",
   upload.single("upload"),
-  (req, res, next) => {
-    console.log("===>", req.file.buffer);
-    next();
-  },
   validateJoiSchema(signUpSchema),
   signUp
 );
@@ -78,5 +68,11 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   changePassword
 );
+
+router.get(
+  "/showData",
+  showData
+);
+
 
 module.exports = router;

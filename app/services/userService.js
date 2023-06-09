@@ -6,6 +6,10 @@ userService.createUser = async (payload) => {
   return await new userModel(payload).save();
 };
 
+userService.findUser=async(searchQuery,projectionQuery)=>{
+  return await userModel.find(searchQuery,projectionQuery);
+}
+
 userService.findOneUser = async (searchQuery, projectionQuery) => {
   return await userModel.findOne(searchQuery, projectionQuery);
 };
