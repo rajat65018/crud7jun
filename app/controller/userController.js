@@ -49,8 +49,6 @@ userController.signUp = async (req, res) => {
 
 userController.login = async (req, res) => {
   const payload = req.body;
-  console.log(req.body);
-  console.log(payload);
   const user = await findOneUser({ email: payload.email, isDeleted: false });
   if (!user) {
     return res.json({
